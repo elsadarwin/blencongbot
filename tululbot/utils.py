@@ -8,7 +8,7 @@ import urbandict as ud
 import yaml
 
 
-class TululBot:
+class BlencongBot:
 
     def __init__(self, token):
         self._telebot = TeleBot(token)
@@ -63,7 +63,7 @@ class TululBot:
     @staticmethod
     def _make_equals_func(text):
         def equals(message):
-            message_text = TululBot._get_text(message)
+            message_text = BlencongBot._get_text(message)
             return message_text is not None and message_text == text
         return equals
 
@@ -94,7 +94,7 @@ class TululBot:
 class QuoteEngine:
 
     def __init__(self):
-        self._quote_url = 'https://raw.githubusercontent.com/tulul/tulul-quotes/master/quote.yaml'  # noqa
+        self._quote_url = 'https://raw.githubusercontent.com/elsadarwin/blencong-quotes/master/quote.yaml'  # noqa
         # Note: rawgit does not have 100% uptime, but at
         # least they're not throttling us.
 
@@ -116,48 +116,3 @@ class QuoteEngine:
         # when we try to get new cache, the network occurs error?
         # We will think about "don't refresh if error" later.
         self._cache = yaml.load(body)['quotes']
-
-
-def lookup_slang(word):
-    not_found_word = 'Gak nemu cuy'
-    return lookup_urbandictionary(word) or lookup_kamusslang(word) or not_found_word
-
-
-def lookup_kamusslang(word):
-    """Lookup slang word definition on kamusslang.com.
-
-    Returns None if no definition found.
-    """
-    kamusslang_url_format = 'http://kamusslang.com/arti/{}'
-    url = kamusslang_url_format.format(quote_plus(word))
-    r = requests.get(url)
-
-    if not r.ok:
-        return "Koneksi lagi bapuk nih :'("
-
-    doc = BeautifulSoup(r.text, 'html.parser')
-    paragraph = doc.find(class_='term-def')
-
-    # Prevent word-alike suggestion
-    if doc.find(class_='close-word-suggestion-text') is not None:
-        return None
-
-    return ''.join(paragraph.strings) if paragraph is not None else None
-
-
-def lookup_urbandictionary(word):
-    """Lookup word definition on urbandictionary.com.
-
-    Returns None if no definition found.
-    """
-    res = ud.define(word)
-    assert res  # res is never empty, even when no definition is found
-
-    if _urbandictionary_has_definition(res[0]):
-        return res[0]['def']
-
-    return None
-
-
-def _urbandictionary_has_definition(definition):
-    return "There aren't any definition" not in definition['def']
