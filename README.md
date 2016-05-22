@@ -1,6 +1,7 @@
 ## User Guide
 ### Command List
 **/quote** - Get random quote from [our database](https://github.com/elsadarwin/blencong-quotes)
+
 **/who** - BlencongBot short intro
 
 ## Development Guide
