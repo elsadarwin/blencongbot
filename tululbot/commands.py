@@ -23,6 +23,6 @@ def who(message):
     about_text = (
         'BlencongBot v1.0.0\n\n'
         'Enhancing your Blencong experience since 2016\n\n'
-        'Contribute on https://github.com/elsaadarwin/blencongbot\n\n'
+        'Contribute on https://github.com/elsadarwin/blencongbot\n\n'
     )
     return bot.reply_to(message, about_text, disable_preview=True)
