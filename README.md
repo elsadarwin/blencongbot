@@ -85,18 +85,3 @@
 [virtualenvwrapper]: https://pypi.python.org/pypi/virtualenvwrapper
 [pyenv]: https://github.com/yyuu/pyenv
 [pyenv-virtualenv]: https://github.com/yyuu/pyenv-virtualenv
-
-### How to run the tests/linters
-
-1. Make sure you already installed [pytest][pytest] and [flake8][flake8]. Both are listed in `requirements.txt` so if you followed the instructions to setup your machine above then they should already be installed.
-
-1. Put `.env` file under your `tests` directory.
-
-1. You can run the tests and linters with `python manage.py test` and `python manage.py lint` respectively. If you remember that `manage.py` is actually executable, you may run it with `./manage.py COMMAND`.
-
-1. To run both linters and tests in one command, you can use `python manage.py check`. This is useful to check your code before making a pull request.
-
-1. For more info on what you can do with `manage.py`, run `python manage.py --help`.
-
-[pytest]: http://pytest.org/latest/
-[flake8]: https://pypi.python.org/pypi/flake8
