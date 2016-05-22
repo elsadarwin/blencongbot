@@ -1,12 +1,8 @@
-# TululBot ![TululBot Build Status](https://travis-ci.org/tulul/tululbot.svg) [![Coverage Status](https://coveralls.io/repos/github/tulul/tululbot/badge.svg?branch=master)](https://coveralls.io/github/tulul/tululbot?branch=master) [![Stories in Ready](https://badge.waffle.io/tulul/tululbot.png?label=ready&title=Ready)](https://waffle.io/tulul/tululbot)
-
-![TululBot Command Preview](https://cdn.rawgit.com/tulul/tululbot/master/assets/img/preview.gif)
-
 ## User Guide
 ### Command List
 **/leli** - Returns search result with given keywords
 
-**/quote** - Get random quote from [our database](https://github.com/tulul/tulul-quotes)
+**/quote** - Get random quote from [our database](https://github.com/elsadarwin/blencong-quotes)
 
 **/slang** - Lookup slang word definition; the result may surprise you!
 
